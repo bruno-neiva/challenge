@@ -44,7 +44,7 @@ global class BacthThatSendSurveysToCustomers implements Database.Batchable<sObje
 
             semail.setPlainTextBody(emailBody );
 			// if you are getting a the error SINGLE_EMAIL_LIMIT_EXCEEDED , comment this line, you reach the limit of emails, try tomorrow   
-            //Messaging.sendEmail(new Messaging.SingleEmailMessage[] {semail});
+            Messaging.sendEmail(new Messaging.SingleEmailMessage[] {semail});
            
             //reset date of each survey should be sent
             listOfContacts.get(i).survey_date__c=null;

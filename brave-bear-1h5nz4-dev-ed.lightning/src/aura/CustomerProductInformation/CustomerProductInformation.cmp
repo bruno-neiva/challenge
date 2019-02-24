@@ -1,0 +1,57 @@
+<aura:component implements="force:hasRecordId,force:hasSObjectName,flexipage:availableForRecordHome" controller="CustomerProductInformation_Controller" access="public">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute  name="customerProductFeeTable" type="list"/>
+    
+    
+    <div>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Customer/Contact">Customer/Contact</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Product">Product</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Cost per Calendar Month">Cost per Calendar Month</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="ATM Fee in other currencies">ATM Fee in other currencies</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Card Replacement Cost">Card Replacement Cost</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.customerProductFeeTable}" var="customerProduct">
+                    
+                    <tr class="slds-hint-parent">
+                        <th data-label="Opportunity Name" scope="row">
+                            <div class="slds-truncate" title="Cloudhub">{!customerProduct.customer_Contact}</div>
+                        </th>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">{!customerProduct.productSubscription}</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">{!customerProduct.costPerCalendarMonth}</div>
+                        </td>
+                        <td data-label="Prospecting">
+                            <div class="slds-truncate" title="Prospecting">{!customerProduct.atmFeeInOtherCurrencies}</div>
+                        </td>
+                        <td data-label="Confidence">
+                            <div class="slds-truncate" title="20%">{!customerProduct.cardReplacementCost}</div>
+                        </td>
+                       
+                    </tr>
+                </aura:iteration>
+                
+            </tbody>
+        </table>
+        
+        
+    </div>
+    
+</aura:component>
